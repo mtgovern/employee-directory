@@ -35,21 +35,17 @@ class App extends React.Component {
     // .catch(err => console.log(err));
   }
 
+
   findName(names, index, letter) {
-  
-    // var filteredNames = names.filter((word) => { 
-         
-    //      return word.name.charAt(index) === letter;
-    // });
     var filteredNames = [];
     names.forEach(name => {
-      if (name.name.startsWith(letter,0))
-      {
+      var checkName = name.name; 
+      var lowerName = checkName.toLowerCase();
+      if (lowerName.startsWith(letter.toLowerCase(), 0)) {
         filteredNames.push(name);
         console.log(name);
-      }  
+      }
     });
-
     this.setState({ results: filteredNames });
   }
 
@@ -88,7 +84,8 @@ class App extends React.Component {
                 className="form-control"
                 placeholder="Search"
                 id="employee"
-                onChange={this.handleInputChange}
+                onChange={this.handleInputChange} 
+                style={{width: "30%", margin: "0 auto", marginLeft: "auto", marginRight: "auto"}}
               />
             </div>
           </form>
@@ -104,5 +101,7 @@ class App extends React.Component {
     );
   }
 }
+
+
 
 export default App;
